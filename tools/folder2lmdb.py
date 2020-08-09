@@ -130,7 +130,7 @@ def dumps_pyarrow(obj):
     return pa.serialize(obj).to_buffer()
 
 
-def folder2lmdb(dpath, out, name="train", write_frequency=5000, num_workers=16):
+def folder2lmdb(dpath, out, name="train", write_frequency=5000, num_workers=64):
     directory = osp.expanduser(osp.join(dpath, name))
     print("Loading dataset from %s" % directory)
     dataset = ImageFolder(directory, loader=raw_reader)
